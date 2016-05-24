@@ -18,10 +18,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhZ-Df-LIp">
-                                <rect key="frame" x="274" y="285" width="53" height="30"/>
-                                <state key="normal" title="request"/>
+                                <rect key="frame" x="253" y="285" width="94" height="30"/>
+                                <state key="normal" title="request block"/>
                                 <connections>
-                                    <action selector="requestAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IM0-vj-dEH"/>
+                                    <action selector="requestBlockAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RGV-qL-PmX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8A-m4-PKI">
+                                <rect key="frame" x="242" y="339" width="116" height="30"/>
+                                <state key="normal" title="request delegate"/>
+                                <connections>
+                                    <action selector="requestDelegateAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J02-DZ-VUF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -29,6 +36,8 @@
                         <constraints>
                             <constraint firstItem="QhZ-Df-LIp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eHM-yn-ng8"/>
                             <constraint firstItem="QhZ-Df-LIp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jpn-rB-Al5"/>
+                            <constraint firstItem="E8A-m4-PKI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rKm-8v-3wo"/>
+                            <constraint firstItem="E8A-m4-PKI" firstAttribute="top" secondItem="QhZ-Df-LIp" secondAttribute="bottom" constant="24" id="rz2-w0-mSe"/>
                         </constraints>
                     </view>
                 </viewController>

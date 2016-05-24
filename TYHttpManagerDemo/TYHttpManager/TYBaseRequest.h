@@ -28,7 +28,7 @@ typedef void (^TYRequestFailureBlock)(id<TYRequestProtocol> request,NSError *err
 @interface TYBaseRequest : NSObject<TYRequestProtocol,TYRequestOverride>
 
 #pragma mark - request
-@property (nonatomic, weak) id<TRequestDelegate> delegate;
+@property (nonatomic, weak) id<TYRequestDelegate> delegate;
 @property (nonatomic, weak) NSURLSessionDataTask *dataTask;
 @property (nonatomic, assign, readonly) TYRequestState state;
 @property (nonatomic, strong, readonly) id responseObject;

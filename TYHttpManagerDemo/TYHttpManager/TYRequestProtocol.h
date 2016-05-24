@@ -36,18 +36,22 @@ typedef void(^AFConstructingBodyBlock)(id <AFMultipartFormData> formData);
 
 
 @protocol TYRequestProtocol;
-@protocol TRequestDelegate <NSObject>
-// override
+@protocol TYRequestDelegate <NSObject>
+
+@optional
+
 - (void)requestDidStart:(id<TYRequestProtocol>)request;
+
 - (void)requestDidFinish:(id<TYRequestProtocol>)request;
-- (void)request:(id<TYRequestProtocol>)request didFailWithError:(NSError *)error;
+
+- (void)requestDidFail:(id<TYRequestProtocol>)request error:(NSError *)error;
 
 @end
 
 
 @protocol TYRequestProtocol <NSObject>
 
-@property (nonatomic, weak) id<TRequestDelegate> delegate;
+@property (nonatomic, weak) id<TYRequestDelegate> delegate;
 @property (nonatomic, weak) NSURLSessionTask *dataTask;
 
 @property (nonatomic, assign, readonly) TYRequestState state;

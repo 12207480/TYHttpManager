@@ -117,8 +117,8 @@
 - (void)requestDidFailWithError:(NSError* )error
 {
     _state = TYRequestStateError;
-    if ([_delegate respondsToSelector:@selector(request:didFailWithError:)]) {
-        [_delegate request:self didFailWithError:error];
+    if ([_delegate respondsToSelector:@selector(requestDidFail:error:)]) {
+        [_delegate requestDidFail:self error:error];
     }
     
     if (_failureBlock) {

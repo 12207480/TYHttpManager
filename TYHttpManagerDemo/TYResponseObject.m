@@ -79,7 +79,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"\nstatus:%d\nmsg:%@\nd",(int)_status,_msg];
+    return [NSString stringWithFormat:@"\nstatus:%d\nmsg:%@",(int)_status,_msg];
 }
 
 - (void)dealloc
