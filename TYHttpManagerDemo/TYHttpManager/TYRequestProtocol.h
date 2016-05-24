@@ -40,8 +40,6 @@ typedef void(^AFConstructingBodyBlock)(id <AFMultipartFormData> formData);
 
 @optional
 
-- (void)requestDidStart:(id<TYRequestProtocol>)request;
-
 - (void)requestDidFinish:(id<TYRequestProtocol>)request;
 
 - (void)requestDidFail:(id<TYRequestProtocol>)request error:(NSError *)error;

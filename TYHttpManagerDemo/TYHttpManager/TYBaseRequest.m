@@ -42,6 +42,7 @@
 - (void)cancle
 {
     [_dataTask cancel];
+    _state = TYRequestStateReady;
 }
 
 - (void)setRequestSuccessBlock:(TYRequestSuccessBlock)successBlock failureBlock:(TYRequestFailureBlock)failureBlock
@@ -60,14 +61,6 @@
 
 #pragma mark - call delegate , block
 
-// 请求已经开始
-- (void)requestDidStart
-{
-    if ([_delegate respondsToSelector:@selector(requestDidStart:)]) {
-        [_delegate requestDidStart:self];
-    }
-}
-
 // 收到数据
 - (void)requestDidResponse:(id)responseObject error:(NSError *)error
 {
@@ -79,7 +72,6 @@
         }else{
             [self requestDidFailWithError:error];
         }
-        
     }
 }
 
