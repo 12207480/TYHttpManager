@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2B34CD641CF3EB3100A9325D /* TYResponseCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B34CD631CF3EB3100A9325D /* TYResponseCache.m */; };
+		2B34CD691CF3FA4400A9325D /* TYResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B34CD681CF3FA4400A9325D /* TYResponseObject.m */; };
+		2B34CD721CF3FBF900A9325D /* NSObject+TYJSONModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B34CD6C1CF3FBF900A9325D /* NSObject+TYJSONModel.m */; };
+		2B34CD731CF3FBF900A9325D /* TYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B34CD6E1CF3FBF900A9325D /* TYClassInfo.m */; };
+		2B34CD741CF3FBF900A9325D /* TYPropertyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B34CD711CF3FBF900A9325D /* TYPropertyInfo.m */; };
+		2B34CD771CF3FE0500A9325D /* TCategoryRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B34CD761CF3FE0500A9325D /* TCategoryRequest.m */; };
+		2B34CD7D1CF4002400A9325D /* TCatergoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B34CD7C1CF4002400A9325D /* TCatergoryModel.m */; };
+		2B34CD911CF434F600A9325D /* TYModelRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B34CD901CF434F600A9325D /* TYModelRequest.m */; };
+		2B34CD981CF4391D00A9325D /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B34CD941CF4391D00A9325D /* MBProgressHUD+MJ.m */; };
+		2B34CD991CF4391D00A9325D /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2B34CD951CF4391D00A9325D /* MBProgressHUD.bundle */; };
+		2B34CD9A1CF4391D00A9325D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B34CD971CF4391D00A9325D /* MBProgressHUD.m */; };
 		2B5053A41CF2A3E00091F8BC /* TYRequstConfigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5053A31CF2A3E00091F8BC /* TYRequstConfigure.m */; };
 		2B5053A71CF2A55F0091F8BC /* TYBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5053A61CF2A55F0091F8BC /* TYBaseRequest.m */; };
 		2B5053AA1CF2B5610091F8BC /* TYHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B5053A91CF2B5610091F8BC /* TYHttpManager.m */; };
@@ -29,6 +39,26 @@
 /* Begin PBXFileReference section */
 		2B34CD621CF3EB3100A9325D /* TYResponseCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYResponseCache.h; sourceTree = "<group>"; };
 		2B34CD631CF3EB3100A9325D /* TYResponseCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYResponseCache.m; sourceTree = "<group>"; };
+		2B34CD671CF3FA4400A9325D /* TYResponseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYResponseObject.h; sourceTree = "<group>"; };
+		2B34CD681CF3FA4400A9325D /* TYResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYResponseObject.m; sourceTree = "<group>"; };
+		2B34CD6B1CF3FBF900A9325D /* NSObject+TYJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TYJSONModel.h"; sourceTree = "<group>"; };
+		2B34CD6C1CF3FBF900A9325D /* NSObject+TYJSONModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TYJSONModel.m"; sourceTree = "<group>"; };
+		2B34CD6D1CF3FBF900A9325D /* TYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYClassInfo.h; sourceTree = "<group>"; };
+		2B34CD6E1CF3FBF900A9325D /* TYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYClassInfo.m; sourceTree = "<group>"; };
+		2B34CD6F1CF3FBF900A9325D /* TYJSONModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYJSONModel.h; sourceTree = "<group>"; };
+		2B34CD701CF3FBF900A9325D /* TYPropertyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYPropertyInfo.h; sourceTree = "<group>"; };
+		2B34CD711CF3FBF900A9325D /* TYPropertyInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYPropertyInfo.m; sourceTree = "<group>"; };
+		2B34CD751CF3FE0500A9325D /* TCategoryRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCategoryRequest.h; sourceTree = "<group>"; };
+		2B34CD761CF3FE0500A9325D /* TCategoryRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCategoryRequest.m; sourceTree = "<group>"; };
+		2B34CD7B1CF4002400A9325D /* TCatergoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCatergoryModel.h; sourceTree = "<group>"; };
+		2B34CD7C1CF4002400A9325D /* TCatergoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCatergoryModel.m; sourceTree = "<group>"; };
+		2B34CD8F1CF434F600A9325D /* TYModelRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYModelRequest.h; sourceTree = "<group>"; };
+		2B34CD901CF434F600A9325D /* TYModelRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYModelRequest.m; sourceTree = "<group>"; };
+		2B34CD931CF4391D00A9325D /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
+		2B34CD941CF4391D00A9325D /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		2B34CD951CF4391D00A9325D /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		2B34CD961CF4391D00A9325D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		2B34CD971CF4391D00A9325D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		2B5053A21CF2A3E00091F8BC /* TYRequstConfigure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYRequstConfigure.h; sourceTree = "<group>"; };
 		2B5053A31CF2A3E00091F8BC /* TYRequstConfigure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYRequstConfigure.m; sourceTree = "<group>"; };
 		2B5053A51CF2A55F0091F8BC /* TYBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBaseRequest.h; sourceTree = "<group>"; };
@@ -77,6 +107,14 @@
 		2B34CD651CF3F40E00A9325D /* CusotmRequest */ = {
 			isa = PBXGroup;
 			children = (
+				2B34CD671CF3FA4400A9325D /* TYResponseObject.h */,
+				2B34CD681CF3FA4400A9325D /* TYResponseObject.m */,
+				2B34CD8F1CF434F600A9325D /* TYModelRequest.h */,
+				2B34CD901CF434F600A9325D /* TYModelRequest.m */,
+				2B34CD751CF3FE0500A9325D /* TCategoryRequest.h */,
+				2B34CD761CF3FE0500A9325D /* TCategoryRequest.m */,
+				2B34CD7B1CF4002400A9325D /* TCatergoryModel.h */,
+				2B34CD7C1CF4002400A9325D /* TCatergoryModel.m */,
 			);
 			name = CusotmRequest;
 			sourceTree = "<group>";
@@ -84,8 +122,36 @@
 		2B34CD661CF3F4FA00A9325D /* Render */ = {
 			isa = PBXGroup;
 			children = (
+				2B34CD921CF4391D00A9325D /* MBProgressHUD */,
+				2B34CD6A1CF3FBF900A9325D /* TYJSONModel */,
 			);
 			name = Render;
+			sourceTree = "<group>";
+		};
+		2B34CD6A1CF3FBF900A9325D /* TYJSONModel */ = {
+			isa = PBXGroup;
+			children = (
+				2B34CD6B1CF3FBF900A9325D /* NSObject+TYJSONModel.h */,
+				2B34CD6C1CF3FBF900A9325D /* NSObject+TYJSONModel.m */,
+				2B34CD6D1CF3FBF900A9325D /* TYClassInfo.h */,
+				2B34CD6E1CF3FBF900A9325D /* TYClassInfo.m */,
+				2B34CD6F1CF3FBF900A9325D /* TYJSONModel.h */,
+				2B34CD701CF3FBF900A9325D /* TYPropertyInfo.h */,
+				2B34CD711CF3FBF900A9325D /* TYPropertyInfo.m */,
+			);
+			path = TYJSONModel;
+			sourceTree = "<group>";
+		};
+		2B34CD921CF4391D00A9325D /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				2B34CD931CF4391D00A9325D /* MBProgressHUD+MJ.h */,
+				2B34CD941CF4391D00A9325D /* MBProgressHUD+MJ.m */,
+				2B34CD951CF4391D00A9325D /* MBProgressHUD.bundle */,
+				2B34CD961CF4391D00A9325D /* MBProgressHUD.h */,
+				2B34CD971CF4391D00A9325D /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 		2BF5FA451CEEB4640052DF27 = {
@@ -229,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BF5FA611CEEB4640052DF27 /* LaunchScreen.storyboard in Resources */,
+				2B34CD991CF4391D00A9325D /* MBProgressHUD.bundle in Resources */,
 				2BF5FA5E1CEEB4640052DF27 /* Assets.xcassets in Resources */,
 				2BF5FA5C1CEEB4640052DF27 /* Main.storyboard in Resources */,
 			);
@@ -243,7 +310,11 @@
 			files = (
 				2B34CD641CF3EB3100A9325D /* TYResponseCache.m in Sources */,
 				2BF5FA7C1CEEB4920052DF27 /* AFURLSessionManager.m in Sources */,
+				2B34CD9A1CF4391D00A9325D /* MBProgressHUD.m in Sources */,
+				2B34CD691CF3FA4400A9325D /* TYResponseObject.m in Sources */,
 				2BF5FA591CEEB4640052DF27 /* ViewController.m in Sources */,
+				2B34CD731CF3FBF900A9325D /* TYClassInfo.m in Sources */,
+				2B34CD7D1CF4002400A9325D /* TCatergoryModel.m in Sources */,
 				2BF5FA561CEEB4640052DF27 /* AppDelegate.m in Sources */,
 				2BF5FA781CEEB4920052DF27 /* AFNetworkReachabilityManager.m in Sources */,
 				2BF5FA531CEEB4640052DF27 /* main.m in Sources */,
@@ -252,9 +323,14 @@
 				2BF5FA7A1CEEB4920052DF27 /* AFURLRequestSerialization.m in Sources */,
 				2B5053A41CF2A3E00091F8BC /* TYRequstConfigure.m in Sources */,
 				2B5053AD1CF2EA9B0091F8BC /* TYHttpRequest.m in Sources */,
+				2B34CD771CF3FE0500A9325D /* TCategoryRequest.m in Sources */,
+				2B34CD721CF3FBF900A9325D /* NSObject+TYJSONModel.m in Sources */,
+				2B34CD981CF4391D00A9325D /* MBProgressHUD+MJ.m in Sources */,
 				2BF5FA7B1CEEB4920052DF27 /* AFURLResponseSerialization.m in Sources */,
 				2B5053AA1CF2B5610091F8BC /* TYHttpManager.m in Sources */,
 				2BF5FA771CEEB4920052DF27 /* AFHTTPSessionManager.m in Sources */,
+				2B34CD911CF434F600A9325D /* TYModelRequest.m in Sources */,
+				2B34CD741CF3FBF900A9325D /* TYPropertyInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

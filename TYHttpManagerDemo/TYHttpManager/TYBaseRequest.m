@@ -97,7 +97,7 @@
 - (BOOL)validResponseObject:(id)responseObject error:(NSError *__autoreleasing *)error
 {
     _responseObject = responseObject;
-    return YES;
+    return _responseObject ? YES : NO;
 }
 
 // 请求成功

@@ -32,12 +32,16 @@
 @property (nonatomic, assign, readonly) BOOL responseFromCache; // response是否来自缓存
 
 // request cache params
-// 是否缓存response
+
+// 是否请求缓存的response 默认NO
+@property (nonatomic, assign) BOOL requestFromCache;
+
+// 是否缓存response ，有效的response才会缓存 默认NO
 @property (nonatomic, assign) BOOL cacheResponse;
-// 是否请求缓存的response
-@property (nonatomic, assign) BOOL requestResponseFromCache;
-// 缓存时间
+
+// 缓存时间 默认7天
 @property (nonatomic, assign) NSInteger cacheTimeInSeconds;
+
 // 缓存忽略的某些Paramters的key
 @property (nonatomic, strong) NSArray *cacheIgnoreParamtersKeys;
 

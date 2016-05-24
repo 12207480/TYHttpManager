@@ -53,6 +53,7 @@ typedef void (^TYRequestFailureBlock)(id<TYRequestProtocol> request,NSError *err
 // 设置请求格式 默认 JSON
 @property (nonatomic, assign) TYRequestSerializerType serializerType;
 
+// 请求缓存策略
 @property (nonatomic, assign) NSURLRequestCachePolicy cachePolicy;
 
 // 请求的连接超时时间，默认为60秒

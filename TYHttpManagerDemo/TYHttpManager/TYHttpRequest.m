@@ -20,6 +20,7 @@
 {
     if (self = [super init]) {
         _responseCache = [[TYResponseCache alloc]init];
+        _cacheTimeInSeconds = 60*60*24*7;
     }
     return self;
 }
@@ -29,11 +30,11 @@
 - (void)loadRequest
 {
     _responseFromCache = NO;
-    if (_requestResponseFromCache && _cacheTimeInSeconds > 0) {
+    if (_requestFromCache && _cacheTimeInSeconds >= 0) {
         // 从缓存中获取
         [self loadResponseFromCache];
     }
-    
+    NSLog(@"responseFromCache %d",_responseFromCache);
     if (!_responseFromCache) {
         // 请求数据
         [super loadRequest];
@@ -44,6 +45,10 @@
 - (void)loadResponseFromCache
 {
     id<TYHttpResponseCache> responseCache = [self responseCache];
+    
+    if (!responseCache) {
+        return;
+    }
     
     // 计算过期时间
     double pastTimeInterval = [[NSDate date] timeIntervalSince1970]-[self cacheTimeInSeconds];
@@ -62,18 +67,15 @@
 // 验证缓存
 - (BOOL)validResponseObject:(id)responseObject error:(NSError *__autoreleasing *)error
 {
-    if (_cacheResponse && !_responseFromCache) {
-        // 缓存数据
-        NSString *urlKey = [self serializeURLKey];
-        [[self responseCache]setObject:responseObject forKey:urlKey];
-    }
-    
     id<TYHttpResponseParser> responseParser = [self responseParser];
     if (responseParser == nil) {
+        [self cacheRequsetResponse:responseObject];
         return [super validResponseObject:responseObject error:error];
     }
     
-    if ([responseParser isValidResponse:responseObject request:self error:error]) {
+    if (_responseFromCache || [responseParser isValidResponse:responseObject request:self error:error]) {
+        // 有效的数据 才可以缓存
+        [self cacheRequsetResponse:responseObject];
         // 验证后 解析数据
         id responseParsedObject = [responseParser parseResponse:responseObject request:self];
         return [super validResponseObject:responseParsedObject error:error];
@@ -84,6 +86,13 @@
 
 #pragma mark - private
 
+- (void)cacheRequsetResponse:(id)responseObject
+{
+    if (responseObject && _cacheResponse && !_responseFromCache) {
+        NSString *urlKey = [self serializeURLKey];
+        [[self responseCache]setObject:responseObject forKey:urlKey];
+    }
+}
 // 拼装url key
 - (NSString *)serializeURLKey
 {
