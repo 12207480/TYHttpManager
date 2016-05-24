@@ -23,10 +23,14 @@
 
 // 请求 使用block
 - (IBAction)requestBlockAction:(id)sender {
+    
     [MBProgressHUD showMessage:@"加载中..." toView:self.view];
+    
+    // request 使用继承
     TCategoryRequest *request = [TCategoryRequest requestWithGender:@"1" generation:@"1"];
-    request.requestFromCache = YES;
-    request.cacheResponse = YES;
+    // 缓存数据
+//    request.requestFromCache = YES;
+//    request.cacheResponse = YES;
     [request loadWithSuccessBlock:^(TCategoryRequest *request) {
         NSLog(@"%@ data:%@",request.responseObject,request.responseObject.data);
         [MBProgressHUD showSuccess:@"加载成功!" toView:self.view];
@@ -37,8 +41,14 @@
 
 // 请求 使用delegate
 - (IBAction)requestDelegateAction:(id)sender {
+    
     [MBProgressHUD showMessage:@"加载中..." toView:self.view];
-    TCategoryRequest *request = [TCategoryRequest requestWithGender:@"1" generation:@"1"];
+    
+    // 不用继承 直接使用request
+    TYModelRequest *request = [TYModelRequest requestWithModelClass:[TCatergoryData class]];
+    // 可以在appdeleagte 里 设置 TYRequstConfigure baseURL
+    request.URLString = @"http://api.liwushuo.com/v2/secondary_banners";
+    request.parameters = @{@"gender":@"1",@"generation":@"1"};
     request.delegate = self;
     [request load];
 }

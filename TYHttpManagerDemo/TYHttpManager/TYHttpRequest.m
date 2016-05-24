@@ -11,7 +11,6 @@
 #import "TYHttpManager.h"
 
 @interface TYResponseCache ()<TYHttpResponseCache>
-
 @end
 
 @implementation TYHttpRequest
