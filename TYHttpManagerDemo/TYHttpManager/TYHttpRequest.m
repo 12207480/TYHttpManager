@@ -27,7 +27,7 @@
 
 #pragma mark - load reqeust
 
-- (void)loadRequest
+- (void)load
 {
     _responseFromCache = NO;
     if (_requestFromCache && _cacheTimeInSeconds >= 0) {
@@ -37,7 +37,7 @@
     NSLog(@"responseFromCache %d",_responseFromCache);
     if (!_responseFromCache) {
         // 请求数据
-        [super loadRequest];
+        [super load];
     }
 }
 

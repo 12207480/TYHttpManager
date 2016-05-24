@@ -13,14 +13,16 @@ typedef void (^TYRequestFailureBlock)(id<TYRequestProtocol> request,NSError *err
 
 @protocol TYRequestOverride <NSObject>
 
-- (void)loadRequest; // don't override load ,override loadRequest
+// 收到请求数据， 如果error == nil
+- (void)requestDidResponse:(id)responseObject error:(NSError *)error;
 
-- (void)requestDidStart;
-
+// 验证请求数据
 - (BOOL)validResponseObject:(id)responseObject error:(NSError *__autoreleasing *)error;
 
+// 请求成功
 - (void)requestDidFinish;
 
+// 请求失败
 - (void)requestDidFailWithError:(NSError* )error;
 
 @end
@@ -75,9 +77,5 @@ typedef void (^TYRequestFailureBlock)(id<TYRequestProtocol> request,NSError *err
 
 // 取消
 - (void)cancle;
-
-// 处理请求数据， 如果error == nil
-- (void)requestDidResponse:(id)responseObject error:(NSError *)error;
-
 
 @end

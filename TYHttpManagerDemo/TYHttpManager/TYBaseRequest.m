@@ -34,23 +34,14 @@
 // 请求
 - (void)load
 {
-    // 请求数据
-    [self loadRequest];
-    
-    // 请求已经开始
-    [self requestDidStart];
+    [[TYHttpManager sharedInstance] addRequest:self];
+    _state = TYRequestStateLoading;
 }
 
 // 取消
 - (void)cancle
 {
     [_dataTask cancel];
-}
-
-// 请求缓存
-- (void)loadRequest
-{
-    [[TYHttpManager sharedInstance] addRequest:self];
 }
 
 - (void)setRequestSuccessBlock:(TYRequestSuccessBlock)successBlock failureBlock:(TYRequestFailureBlock)failureBlock
@@ -72,7 +63,6 @@
 // 请求已经开始
 - (void)requestDidStart
 {
-    _state = TYRequestStateLoading;
     if ([_delegate respondsToSelector:@selector(requestDidStart:)]) {
         [_delegate requestDidStart:self];
     }

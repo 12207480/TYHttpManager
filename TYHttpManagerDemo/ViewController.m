@@ -25,10 +25,10 @@
 - (IBAction)requestBlockAction:(id)sender {
     [MBProgressHUD showMessage:@"加载中..." toView:self.view];
     TCategoryRequest *request = [TCategoryRequest requestWithGender:@"1" generation:@"1"];
-//    request.requestFromCache = YES;
-//    request.cacheResponse = YES;
+    request.requestFromCache = YES;
+    request.cacheResponse = YES;
     [request loadWithSuccessBlock:^(TCategoryRequest *request) {
-        NSLog(@"%@ ",request.responseObject);
+        NSLog(@"%@ data:%@",request.responseObject,request.responseObject.data);
         [MBProgressHUD showSuccess:@"加载成功!" toView:self.view];
     } failureBlock:^(TCategoryRequest *request, NSError *error) {
         [MBProgressHUD showError:@"加载失败!" toView:self.view];
@@ -45,18 +45,13 @@
 
 #pragma mark - delegate
 
-- (void)requestDidStart:(id<TYRequestProtocol>)request
+- (void)requestDidFinish:(TYModelRequest *)request
 {
-    
-}
-
-- (void)requestDidFinish:(id<TYRequestProtocol>)request
-{
-    NSLog(@"%@ ",request.responseObject);
+     NSLog(@"%@ data:%@",request.responseObject,request.responseObject.data);
     [MBProgressHUD showSuccess:@"加载成功!" toView:self.view];
 }
 
-- (void)requestDidFail:(id<TYRequestProtocol>)request error:(NSError *)error
+- (void)requestDidFail:(TYModelRequest *)request error:(NSError *)error
 {
      [MBProgressHUD showError:@"加载失败!" toView:self.view];
 }
