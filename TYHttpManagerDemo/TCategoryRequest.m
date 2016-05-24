@@ -13,6 +13,7 @@
 + (instancetype)requestWithGender:(NSString *)gender generation:(NSString *)generation
 {
     TCategoryRequest *request = [TCategoryRequest requestWithModelClass:[TCatergoryData class]];
+    // 可以在appdeleagte 里 设置 TYRequstConfigure baseURL
     request.URLString = @"http://api.liwushuo.com/v2/secondary_banners";
     request.parameters = @{@"gender":gender,@"generation":generation};;
     return request;
