@@ -111,10 +111,6 @@
 				2B34CD681CF3FA4400A9325D /* TYResponseObject.m */,
 				2B34CD8F1CF434F600A9325D /* TYModelRequest.h */,
 				2B34CD901CF434F600A9325D /* TYModelRequest.m */,
-				2B34CD751CF3FE0500A9325D /* TCategoryRequest.h */,
-				2B34CD761CF3FE0500A9325D /* TCategoryRequest.m */,
-				2B34CD7B1CF4002400A9325D /* TCatergoryModel.h */,
-				2B34CD7C1CF4002400A9325D /* TCatergoryModel.m */,
 			);
 			name = CusotmRequest;
 			sourceTree = "<group>";
@@ -179,6 +175,10 @@
 				2B34CD651CF3F40E00A9325D /* CusotmRequest */,
 				2BF5FA541CEEB4640052DF27 /* AppDelegate.h */,
 				2BF5FA551CEEB4640052DF27 /* AppDelegate.m */,
+				2B34CD751CF3FE0500A9325D /* TCategoryRequest.h */,
+				2B34CD761CF3FE0500A9325D /* TCategoryRequest.m */,
+				2B34CD7B1CF4002400A9325D /* TCatergoryModel.h */,
+				2B34CD7C1CF4002400A9325D /* TCatergoryModel.m */,
 				2BF5FA571CEEB4640052DF27 /* ViewController.h */,
 				2BF5FA581CEEB4640052DF27 /* ViewController.m */,
 				2BF5FA5A1CEEB4640052DF27 /* Main.storyboard */,
