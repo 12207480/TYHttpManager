@@ -42,6 +42,7 @@
 - (void)cancle
 {
     [_dataTask cancel];
+    [self clearRequestBlock];
     _state = TYRequestStateReady;
 }
 
@@ -113,15 +114,14 @@
 {
     _successBlock = nil;
     _failureBlock = nil;
+    _progressBlock = nil;
+    _constructingBodyBlock = nil;
 }
 
 - (void)dealloc
 {
     [self clearRequestBlock];
-    
     _delegate = nil;
-    _progressBlock = nil;
-    _constructingBodyBlock = nil;
     
     NSLog(@"%@%s",NSStringFromClass([self class]),__func__);
 }

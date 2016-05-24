@@ -11,7 +11,7 @@
 #import "TCategoryRequest.h"
 
 @interface ViewController ()<TYRequestDelegate>
-
+@property (nonatomic, weak) TYModelRequest *request;
 @end
 
 @implementation ViewController
@@ -26,12 +26,14 @@
     
     [MBProgressHUD showMessage:@"加载中..." toView:self.view];
     
-    // request 使用继承
-    TCategoryRequest *request = [TCategoryRequest requestWithGender:@"1" generation:@"1"];
+     // request 使用继承
+    [_request cancle];
+    _request = [TCategoryRequest requestWithGender:@"1" generation:@"1"];
     // 缓存数据
 //    request.requestFromCache = YES;
 //    request.cacheResponse = YES;
-    [request loadWithSuccessBlock:^(TCategoryRequest *request) {
+    
+    [_request loadWithSuccessBlock:^(TCategoryRequest *request) {
         NSLog(@"%@ data:%@",request.responseObject,request.responseObject.data);
         [MBProgressHUD showSuccess:@"加载成功!" toView:self.view];
     } failureBlock:^(TCategoryRequest *request, NSError *error) {
