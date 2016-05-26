@@ -22,6 +22,4 @@
 
 - (NSString *)buildRequstURL:(id<TYRequestProtocol>)request;
 
-
-
 @end
