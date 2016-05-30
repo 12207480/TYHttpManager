@@ -33,7 +33,7 @@
         // 从缓存中获取
         [self loadResponseFromCache];
     }
-    NSLog(@"responseFromCache %d",_responseFromCache);
+    //NSLog(@"responseFromCache %d",_responseFromCache);
     if (!_responseFromCache) {
         // 请求数据
         [super load];

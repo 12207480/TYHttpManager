@@ -82,9 +82,9 @@
     return [NSString stringWithFormat:@"\nstatus:%d\nmsg:%@\n",(int)_status,_msg];
 }
 
-- (void)dealloc
-{
-    NSLog(@"%@%s",NSStringFromClass([self class]),__func__);
-}
+//- (void)dealloc
+//{
+//    NSLog(@"%@%s",NSStringFromClass([self class]),__func__);
+//}
 
 @end

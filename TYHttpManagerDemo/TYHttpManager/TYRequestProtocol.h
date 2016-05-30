@@ -49,11 +49,13 @@ typedef void(^AFConstructingBodyBlock)(id <AFMultipartFormData> formData);
 
 @protocol TYRequestProtocol <NSObject>
 
-@property (nonatomic, weak) id<TYRequestDelegate> delegate;
 @property (nonatomic, weak) NSURLSessionTask *dataTask;
 
 @property (nonatomic, assign, readonly) TYRequestState state;
 @property (nonatomic, strong, readonly) id responseObject;
+
+@property (nonatomic, weak) id<TYRequestDelegate> delegate; // 请求代理
+@property (nonatomic, strong) id<TYRequestDelegate> embedAccesory; // 嵌入请求代理 注意strong
 
 // 请求的URLString,或者 URL path ，baseURL use TYRequestConfigure.baseURL
 - (NSString *)URLString;

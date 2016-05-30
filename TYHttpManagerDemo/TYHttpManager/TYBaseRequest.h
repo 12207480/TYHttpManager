@@ -30,10 +30,12 @@ typedef void (^TYRequestFailureBlock)(id<TYRequestProtocol> request,NSError *err
 @interface TYBaseRequest : NSObject<TYRequestProtocol,TYRequestOverride>
 
 #pragma mark - request
-@property (nonatomic, weak) id<TYRequestDelegate> delegate;
 @property (nonatomic, weak) NSURLSessionDataTask *dataTask;
 @property (nonatomic, assign, readonly) TYRequestState state;
 @property (nonatomic, strong, readonly) id responseObject;
+
+@property (nonatomic, weak) id<TYRequestDelegate> delegate; // 请求代理
+@property (nonatomic, strong) id<TYRequestDelegate> embedAccesory; // 完成请求代理 后调用 注意strong
 
 #pragma mark - block
 @property (nonatomic, copy, readonly) TYRequestSuccessBlock successBlock; // 请求成功block

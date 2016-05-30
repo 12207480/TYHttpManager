@@ -18,27 +18,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QhZ-Df-LIp">
-                                <rect key="frame" x="253" y="285" width="94" height="30"/>
+                                <rect key="frame" x="253" y="220" width="94" height="30"/>
                                 <state key="normal" title="request block"/>
                                 <connections>
                                     <action selector="requestBlockAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RGV-qL-PmX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8A-m4-PKI">
-                                <rect key="frame" x="242" y="339" width="116" height="30"/>
+                                <rect key="frame" x="242" y="274" width="116" height="30"/>
                                 <state key="normal" title="request delegate"/>
                                 <connections>
                                     <action selector="requestDelegateAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J02-DZ-VUF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eo9-IY-usm">
+                                <rect key="frame" x="254" y="334" width="93" height="30"/>
+                                <state key="normal" title="chain request"/>
+                                <connections>
+                                    <action selector="chainRquestAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mrl-BM-IcA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvN-wH-YZ1">
+                                <rect key="frame" x="252" y="394" width="96" height="30"/>
+                                <state key="normal" title="batch request"/>
+                                <connections>
+                                    <action selector="batchRequestAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NXy-ID-7na"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Eo9-IY-usm" firstAttribute="top" secondItem="E8A-m4-PKI" secondAttribute="bottom" constant="30" id="6WD-ee-wvc"/>
+                            <constraint firstItem="gvN-wH-YZ1" firstAttribute="top" secondItem="Eo9-IY-usm" secondAttribute="bottom" constant="30" id="7yw-qS-VVD"/>
                             <constraint firstItem="QhZ-Df-LIp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eHM-yn-ng8"/>
+                            <constraint firstItem="Eo9-IY-usm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="huY-E8-ddu"/>
                             <constraint firstItem="QhZ-Df-LIp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jpn-rB-Al5"/>
+                            <constraint firstItem="QhZ-Df-LIp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oyR-JA-0FH"/>
                             <constraint firstItem="E8A-m4-PKI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rKm-8v-3wo"/>
                             <constraint firstItem="E8A-m4-PKI" firstAttribute="top" secondItem="QhZ-Df-LIp" secondAttribute="bottom" constant="24" id="rz2-w0-mSe"/>
+                            <constraint firstItem="QhZ-Df-LIp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="200" id="tzn-sB-bV7"/>
+                            <constraint firstItem="gvN-wH-YZ1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uUN-NL-iE3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="eHM-yn-ng8"/>
+                                <exclude reference="jpn-rB-Al5"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

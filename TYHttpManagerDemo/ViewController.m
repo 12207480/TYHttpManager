@@ -9,9 +9,12 @@
 #import "ViewController.h"
 #import "MBProgressHUD+MJ.h"
 #import "TCategoryRequest.h"
+#import "TYChainRequest.h"
+#import "TYBatchRequest.h"
 
 @interface ViewController ()<TYRequestDelegate>
 @property (nonatomic, weak) TYModelRequest *request;
+
 @end
 
 @implementation ViewController
@@ -53,6 +56,65 @@
     request.parameters = @{@"gender":@"1",@"generation":@"1"};
     request.delegate = self;
     [request load];
+}
+
+- (IBAction)chainRquestAction:(id)sender {
+    TYModelRequest *request1 = [self reuqetWithidentifer:@"11111"];
+    TYModelRequest *request2 = [self reuqetWithidentifer:@"22222"];
+    TYModelRequest *request3 = [self reuqetWithidentifer:@"33333"];
+    TYModelRequest *request4 = [self reuqetWithidentifer:@"44444"];
+    TYModelRequest *request5 = [self reuqetWithidentifer:@"55555"];
+    
+    TYChainRequest *chainRequest = [[TYChainRequest alloc]init];
+    [chainRequest addRequest:request1];
+     [chainRequest addRequest:request2];
+     [chainRequest addRequest:request3];
+     [chainRequest addRequest:request4];
+     [chainRequest addRequest:request5];
+    
+    [chainRequest loadWithSuccessBlock:^(TYChainRequest *request) {
+        NSLog(@"TYChainRequest success");
+    } failureBlock:^(TYChainRequest *request, NSError *error) {
+        NSLog(@"TYChainRequest error");
+    }];
+}
+
+- (IBAction)batchRequestAction:(id)sender {
+    TYModelRequest *request1 = [self reuqetWithidentifer:@"11111"];
+    TYModelRequest *request2 = [self reuqetWithidentifer:@"22222"];
+    TYModelRequest *request3 = [self reuqetWithidentifer:@"33333"];
+    TYModelRequest *request4 = [self reuqetWithidentifer:@"44444"];
+    TYModelRequest *request5 = [self reuqetWithidentifer:@"55555"];
+    
+    TYBatchRequest *batchRequest = [[TYBatchRequest alloc]init];
+    [batchRequest addRequest:request1];
+    [batchRequest addRequest:request2];
+    [batchRequest addRequest:request3];
+    [batchRequest addRequest:request4];
+    [batchRequest addRequest:request5];
+    
+    [batchRequest loadWithSuccessBlock:^(TYBatchRequest *request) {
+        NSLog(@"batchRequest success");
+    } failureBlock:^(TYBatchRequest *request, NSError *error) {
+        NSLog(@"batchRequest error");
+    }];
+
+}
+
+- (TYModelRequest *)reuqetWithidentifer:(NSString *)identifer
+{
+    TYModelRequest *request = [TCategoryRequest requestWithGender:@"1" generation:@"1"];
+    request.identifier = identifer;
+    // 缓存数据
+    //    request.requestFromCache = YES;
+    //    request.cacheResponse = YES;
+    
+    [request setRequestSuccessBlock:^(TCategoryRequest *request) {
+        NSLog(@"请求成功 request id %@",request.identifier);
+    } failureBlock:^(TCategoryRequest *request, NSError *error) {
+        NSLog(@"请求失败 request id %@",request.identifier);
+    }];
+    return request;
 }
 
 #pragma mark - delegate

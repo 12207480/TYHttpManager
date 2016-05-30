@@ -94,6 +94,11 @@
     if (_successBlock) {
         _successBlock(self);
     }
+    
+    if (_embedAccesory && [_embedAccesory respondsToSelector:@selector(requestDidFinish:)]) {
+        [_embedAccesory requestDidFinish:self];
+    }
+
 }
 
 // 请求失败
@@ -106,6 +111,10 @@
     
     if (_failureBlock) {
         _failureBlock(self,error);
+    }
+    
+    if (_embedAccesory && [_embedAccesory respondsToSelector:@selector(requestDidFail:error:)]) {
+        [_delegate requestDidFail:self error:error];
     }
 }
 

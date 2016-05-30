@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong, readonly) TYResponseObject *responseObject;
 
+@property (nonatomic, strong) NSString *identifier;
+
 - (instancetype)initWithModelClass:(Class)modelClass;
 
 + (instancetype)requestWithModelClass:(Class)modelClass;
