@@ -1,4 +1,4 @@
 # TYHttpManager
-网络请求管理库，基于对AFNetwork的封装
+网络请求管理库，基于对AFNetwork的封装<br>
 支持httpRequest，chainRequest，batchRequest
 
