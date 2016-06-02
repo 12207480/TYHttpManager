@@ -34,8 +34,7 @@ static NSString * const TYRequestManagerCacheDirectory = @"TYRequestCacheDirecto
 - (void)createCachesDirectory
 {
     _fileManager = [NSFileManager defaultManager];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *cachePath = [paths objectAtIndex:0];
+    NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     _cachePath = [cachePath stringByAppendingPathComponent:TYRequestManagerCacheDirectory];
     BOOL isDirectory;
     if (![_fileManager fileExistsAtPath:_cachePath isDirectory:&isDirectory]) {
@@ -63,33 +62,6 @@ static NSString * const TYRequestManagerCacheDirectory = @"TYRequestCacheDirecto
             result[12], result[13], result[14], result[15]
             ];
 }
-
-- (NSString *)encodedString:(NSString *)string
-{
-    if (![string length])
-        return @"";
-    
-    CFStringRef static const charsToEscape = CFSTR(".:/?");
-    CFStringRef escapedString = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                        (__bridge CFStringRef)string,
-                                                                        NULL,
-                                                                        charsToEscape,
-                                                                        kCFStringEncodingUTF8);
-    return (__bridge_transfer NSString *)escapedString;
-}
-
-- (NSString *)decodedString:(NSString *)string
-{
-    if (![string length])
-        return @"";
-    
-    CFStringRef unescapedString = CFURLCreateStringByReplacingPercentEscapesUsingEncoding(kCFAllocatorDefault,
-                                                                                          (__bridge CFStringRef)string,
-                                                                                          CFSTR(""),
-                                                                                          kCFStringEncodingUTF8);
-    return (__bridge_transfer NSString *)unescapedString;
-}
-
 
 - (void)setObject:(id<NSCoding>)object forKey:(NSString *)key
 {
