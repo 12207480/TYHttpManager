@@ -43,7 +43,8 @@
 {
     [_dataTask cancel];
     [self clearRequestBlock];
-    _state = TYRequestStateReady;
+    _delegate = nil;
+    _state = TYRequestStateCancle;
 }
 
 - (void)setRequestSuccessBlock:(TYRequestSuccessBlock)successBlock failureBlock:(TYRequestFailureBlock)failureBlock
@@ -131,8 +132,6 @@
 {
     [self clearRequestBlock];
     _delegate = nil;
-    
-    NSLog(@"%@%s",NSStringFromClass([self class]),__func__);
 }
 
 @end

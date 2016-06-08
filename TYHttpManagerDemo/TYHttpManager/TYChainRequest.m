@@ -121,7 +121,6 @@
 {
     _successBlock = nil;
     _failureBlock = nil;
-    NSLog(@"%@%s",NSStringFromClass([self class]),__func__);
 }
 
 @end

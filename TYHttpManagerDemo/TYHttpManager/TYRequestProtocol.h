@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger , TYRequestSerializerType) {
 typedef NS_ENUM(NSUInteger, TYRequestState) {
     TYRequestStateReady,
     TYRequestStateLoading,
+    TYRequestStateCancle,
     TYRequestStateFinish,
     TYRequestStateError
 };
