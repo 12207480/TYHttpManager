@@ -59,6 +59,8 @@
 }
 
 - (IBAction)chainRquestAction:(id)sender {
+    [MBProgressHUD showMessage:@"加载中..." toView:self.view];
+    
     TYModelRequest *request1 = [self reuqetWithidentifer:@"11111"];
     TYModelRequest *request2 = [self reuqetWithidentifer:@"22222"];
     TYModelRequest *request3 = [self reuqetWithidentifer:@"33333"];
@@ -73,13 +75,17 @@
      [chainRequest addRequest:request5];
     
     [chainRequest loadWithSuccessBlock:^(TYChainRequest *request) {
-        NSLog(@"TYChainRequest success");
+        // TYChainRequest
+        [MBProgressHUD showSuccess:@"chainRequest 加载成功!" toView:self.view];
     } failureBlock:^(TYChainRequest *request, NSError *error) {
-        NSLog(@"TYChainRequest error");
+        // TYChainRequest
+        [MBProgressHUD showError:@"chainRequest 加载失败!" toView:self.view];
     }];
 }
 
 - (IBAction)batchRequestAction:(id)sender {
+    [MBProgressHUD showMessage:@"加载中..." toView:self.view];
+    
     TYModelRequest *request1 = [self reuqetWithidentifer:@"11111"];
     TYModelRequest *request2 = [self reuqetWithidentifer:@"22222"];
     TYModelRequest *request3 = [self reuqetWithidentifer:@"33333"];
@@ -94,9 +100,11 @@
     [batchRequest addRequest:request5];
     
     [batchRequest loadWithSuccessBlock:^(TYBatchRequest *request) {
-        NSLog(@"batchRequest success");
+        // batchRequest
+        [MBProgressHUD showSuccess:@"batchRequest 加载成功!" toView:self.view];
     } failureBlock:^(TYBatchRequest *request, NSError *error) {
-        NSLog(@"batchRequest error");
+        // batchRequest
+        [MBProgressHUD showError:@"batchRequest 加载失败!" toView:self.view];
     }];
 
 }
