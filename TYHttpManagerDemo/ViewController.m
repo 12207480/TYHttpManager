@@ -33,8 +33,8 @@
     [_request cancle];
     _request = [TCategoryRequest requestWithGender:@"1" generation:@"1"];
     // 缓存数据
-//    request.requestFromCache = YES;
-//    request.cacheResponse = YES;
+    _request.requestFromCache = YES;
+    _request.cacheResponse = YES;
     
     [_request loadWithSuccessBlock:^(TCategoryRequest *request) {
         NSLog(@"%@ data:%@",request.responseObject,request.responseObject.data);

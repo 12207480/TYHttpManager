@@ -34,6 +34,15 @@
     [_chainRequstArray addObject:request];
 }
 
+- (void)addRequestArray:(NSArray *)requestArray
+{
+    for (id<TYRequestProtocol> request in requestArray) {
+        if ([request conformsToProtocol:@protocol(TYRequestProtocol) ]) {
+            [self addRequest:request];
+        }
+    }
+}
+
 - (void)cancleRequest:(id<TYRequestProtocol>)request
 {
     request.embedAccesory = nil;
@@ -117,10 +126,15 @@
     
 }
 
-- (void)dealloc
+- (void)clearBlocks
 {
     _successBlock = nil;
     _failureBlock = nil;
+}
+
+- (void)dealloc
+{
+    [self clearBlocks];
 }
 
 @end

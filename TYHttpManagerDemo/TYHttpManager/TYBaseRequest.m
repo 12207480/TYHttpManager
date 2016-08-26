@@ -88,37 +88,53 @@
 - (void)requestDidFinish
 {
     _state = TYRequestStateFinish;
-    if ([_delegate respondsToSelector:@selector(requestDidFinish:)]) {
-        [_delegate requestDidFinish:self];
-    }
     
-    if (_successBlock) {
-        _successBlock(self);
-    }
+    void (^finishBlock)() = ^{
+        if ([_delegate respondsToSelector:@selector(requestDidFinish:)]) {
+            [_delegate requestDidFinish:self];
+        }
+        
+        if (_successBlock) {
+            _successBlock(self);
+        }
+        
+        if (_embedAccesory && [_embedAccesory respondsToSelector:@selector(requestDidFinish:)]) {
+            [_embedAccesory requestDidFinish:self];
+        }
+    };
     
-    if (_embedAccesory && [_embedAccesory respondsToSelector:@selector(requestDidFinish:)]) {
-        [_embedAccesory requestDidFinish:self];
+    if (_asynCompleteQueue) {
+        finishBlock();
+    }else {
+        dispatch_async(dispatch_get_main_queue(),finishBlock);
     }
-
 }
 
 // 请求失败
 - (void)requestDidFailWithError:(NSError* )error
 {
     _state = TYRequestStateError;
-    if ([_delegate respondsToSelector:@selector(requestDidFail:error:)]) {
-        [_delegate requestDidFail:self error:error];
-    }
     
-    if (_failureBlock) {
-        _failureBlock(self,error);
-    }
+    void (^failBlock)() = ^{
+        if ([_delegate respondsToSelector:@selector(requestDidFail:error:)]) {
+            [_delegate requestDidFail:self error:error];
+        }
+        
+        if (_failureBlock) {
+            _failureBlock(self,error);
+        }
+        
+        if (_embedAccesory && [_embedAccesory respondsToSelector:@selector(requestDidFail:error:)]) {
+            [_embedAccesory requestDidFail:self error:error];
+        }
+    };
     
-    if (_embedAccesory && [_embedAccesory respondsToSelector:@selector(requestDidFail:error:)]) {
-        [_embedAccesory requestDidFail:self error:error];
+    if (_asynCompleteQueue) {
+        failBlock();
+    }else {
+        dispatch_async(dispatch_get_main_queue(),failBlock);
     }
 }
-
 // 清除block引用
 - (void)clearRequestBlock
 {
