@@ -6,35 +6,18 @@
 //  Copyright © 2016年 tany. All rights reserved.
 //
 
-#import "TYResponseObject.h"
+#import "TResponseObject.h"
 #import "TYJSONModel.h"
 
-@interface TYResponseObject ()
+@interface TResponseObject ()
 @property (nonatomic, assign) Class modelClass;
 @end
 
-@implementation TYResponseObject
-
-- (instancetype)initWithModelClass:(Class)modelClass
-{
-    if (self = [super init]) {
-        _modelClass = modelClass;
-    }
-    return self;
-}
+@implementation TResponseObject
 
 - (BOOL)isValidResponse:(id)response request:(TYHttpRequest *)request error:(NSError *__autoreleasing *)error
 {
-    if (!response) {
-        return NO;
-    }
-    
-    NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)request.dataTask.response;
-    NSInteger responseStatusCode = [httpResponse statusCode];
-    
-    // StatusCode
-    if (responseStatusCode < 200 || responseStatusCode > 299) {
-        *error = [NSError errorWithDomain:@"invalid http request" code: responseStatusCode userInfo:nil];
+    if (![super isValidResponse:response request:request error:error]) {
         return NO;
     }
     
@@ -47,9 +30,9 @@
     // 获取自定义的状态码
     NSInteger status = [[response objectForKey:@"code"] integerValue];
     if (status != TYStauteSuccessCode) {
-        _status = status;
-        _msg = [response objectForKey:@"message"];
-        *error = [NSError errorWithDomain:_msg code:_status  userInfo:nil];
+        self.status = status;
+        self.msg = [response objectForKey:@"message"];
+        *error = [NSError errorWithDomain:self.msg code:self.status  userInfo:nil];
         return NO;
     }
     
@@ -58,28 +41,23 @@
 
 - (id)parseResponse:(id)response request:(TYHttpRequest *)request
 {
-    _status = [[response objectForKey:@"code"] integerValue];
-    _msg = [response objectForKey:@"message"];
+    self.status = [[response objectForKey:@"code"] integerValue];
+    self.msg = [response objectForKey:@"message"];
     id json = [response objectForKey:@"data"];
 //    _pgIndex = [[response objectForKey:@"pgIndex"] integerValue];
 //    _pgSize = [[response objectForKey:@"pgSize"] integerValue];
 //    _count = [[response objectForKey:@"count"] integerValue];
     
-    if (_modelClass) {
+    if (self.modelClass) {
         if ([json isKindOfClass:[NSDictionary class]]) {
-            _data = [[self modelClass] ty_ModelWithDictonary:json];
+            self.data = [[self modelClass] ty_ModelWithDictonary:json];
         }else if ([json isKindOfClass:[NSArray class]]) {
-            _data = [[self modelClass] ty_modelArrayWithDictionaryArray:json];
+            self.data = [[self modelClass] ty_modelArrayWithDictionaryArray:json];
         }
     }else {
-        _data = json;
+        self.data = json;
     }
     return self;
-}
-
-- (NSString *)description
-{
-    return [NSString stringWithFormat:@"\nstatus:%d\nmsg:%@\n",(int)_status,_msg];
 }
 
 //- (void)dealloc

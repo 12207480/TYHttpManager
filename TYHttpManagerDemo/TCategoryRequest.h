@@ -6,10 +6,10 @@
 //  Copyright © 2016年 tany. All rights reserved.
 //
 
-#import "TYModelRequest.h"
+#import "THttpRequest.h"
 #import "TCatergoryModel.h"
 
-@interface TCategoryRequest : TYModelRequest
+@interface TCategoryRequest : THttpRequest
 
 + (instancetype)requestWithGender:(NSString *)gender generation:(NSString *)generation;
 

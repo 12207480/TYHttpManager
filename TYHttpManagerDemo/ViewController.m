@@ -13,7 +13,7 @@
 #import "TYBatchRequest.h"
 
 @interface ViewController ()<TYRequestDelegate>
-@property (nonatomic, weak) TYModelRequest *request;
+@property (nonatomic, weak) THttpRequest *request;
 
 @end
 
@@ -50,7 +50,7 @@
     [MBProgressHUD showMessage:@"加载中..." toView:self.view];
     
     // 不用继承 直接使用request
-    TYModelRequest *request = [TYModelRequest requestWithModelClass:[TCatergoryData class]];
+    THttpRequest *request = [THttpRequest requestWithModelClass:[TCatergoryData class]];
     // 可以在appdeleagte 里 设置 TYRequstConfigure baseURL
     request.URLString = @"http://api.liwushuo.com/v2/secondary_banners";
     request.parameters = @{@"gender":@"1",@"generation":@"1"};
@@ -61,11 +61,11 @@
 - (IBAction)chainRquestAction:(id)sender {
     [MBProgressHUD showMessage:@"加载中..." toView:self.view];
     
-    TYModelRequest *request1 = [self reuqetWithidentifer:@"11111"];
-    TYModelRequest *request2 = [self reuqetWithidentifer:@"22222"];
-    TYModelRequest *request3 = [self reuqetWithidentifer:@"33333"];
-    TYModelRequest *request4 = [self reuqetWithidentifer:@"44444"];
-    TYModelRequest *request5 = [self reuqetWithidentifer:@"55555"];
+    THttpRequest *request1 = [self reuqetWithidentifer:@"11111"];
+    THttpRequest *request2 = [self reuqetWithidentifer:@"22222"];
+    THttpRequest *request3 = [self reuqetWithidentifer:@"33333"];
+    THttpRequest *request4 = [self reuqetWithidentifer:@"44444"];
+    THttpRequest *request5 = [self reuqetWithidentifer:@"55555"];
     
     TYChainRequest *chainRequest = [[TYChainRequest alloc]init];
     [chainRequest addRequest:request1];
@@ -86,11 +86,11 @@
 - (IBAction)batchRequestAction:(id)sender {
     [MBProgressHUD showMessage:@"加载中..." toView:self.view];
     
-    TYModelRequest *request1 = [self reuqetWithidentifer:@"11111"];
-    TYModelRequest *request2 = [self reuqetWithidentifer:@"22222"];
-    TYModelRequest *request3 = [self reuqetWithidentifer:@"33333"];
-    TYModelRequest *request4 = [self reuqetWithidentifer:@"44444"];
-    TYModelRequest *request5 = [self reuqetWithidentifer:@"55555"];
+    THttpRequest *request1 = [self reuqetWithidentifer:@"11111"];
+    THttpRequest *request2 = [self reuqetWithidentifer:@"22222"];
+    THttpRequest *request3 = [self reuqetWithidentifer:@"33333"];
+    THttpRequest *request4 = [self reuqetWithidentifer:@"44444"];
+    THttpRequest *request5 = [self reuqetWithidentifer:@"55555"];
     
     TYBatchRequest *batchRequest = [[TYBatchRequest alloc]init];
     [batchRequest addRequest:request1];
@@ -109,9 +109,9 @@
 
 }
 
-- (TYModelRequest *)reuqetWithidentifer:(NSString *)identifer
+- (THttpRequest *)reuqetWithidentifer:(NSString *)identifer
 {
-    TYModelRequest *request = [TCategoryRequest requestWithGender:@"1" generation:@"1"];
+    THttpRequest *request = [TCategoryRequest requestWithGender:@"1" generation:@"1"];
     request.identifier = identifer;
     // 缓存数据
     //    request.requestFromCache = YES;
@@ -127,13 +127,13 @@
 
 #pragma mark - delegate
 
-- (void)requestDidFinish:(TYModelRequest *)request
+- (void)requestDidFinish:(THttpRequest *)request
 {
      NSLog(@"%@ data:%@",request.responseObject,request.responseObject.data);
     [MBProgressHUD showSuccess:@"加载成功!" toView:self.view];
 }
 
-- (void)requestDidFail:(TYModelRequest *)request error:(NSError *)error
+- (void)requestDidFail:(THttpRequest *)request error:(NSError *)error
 {
      [MBProgressHUD showError:@"加载失败!" toView:self.view];
 }

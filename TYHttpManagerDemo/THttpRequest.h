@@ -1,5 +1,5 @@
 //
-//  TYModelRequest.h
+//  THttpRequest.h
 //  TYHttpManagerDemo
 //
 //  Created by tany on 16/5/24.
@@ -7,9 +7,9 @@
 //
 
 #import "TYHttpRequest.h"
-#import "TYResponseObject.h"
+#import "TResponseObject.h"
 
-@interface TYModelRequest : TYHttpRequest
+@interface THttpRequest : TYHttpRequest
 
 @property (nonatomic, strong, readonly) TYResponseObject *responseObject;
 
