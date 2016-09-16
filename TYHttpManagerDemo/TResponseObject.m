@@ -9,10 +9,6 @@
 #import "TResponseObject.h"
 #import "TYJSONModel.h"
 
-@interface TResponseObject ()
-@property (nonatomic, assign) Class modelClass;
-@end
-
 @implementation TResponseObject
 
 - (BOOL)isValidResponse:(id)response request:(TYHttpRequest *)request error:(NSError *__autoreleasing *)error
